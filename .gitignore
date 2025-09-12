@@ -1,0 +1,19 @@
+# Archivos de compilación
+bin/
+obj/
+
+# Configuración de VS Code
+.vscode/
+
+# Archivos temporales
+*.user
+*.log
+*.db
+*.tmp
+
+# Publicaciones
+/out/
+/publish/
+
+# Secretos (¡cuidado con contraseñas!)
+appsettings.Development.json

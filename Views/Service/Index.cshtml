@@ -1,0 +1,50 @@
+﻿@model List<WebApplication_NET_CORE.Models.ServiceVM>
+@{
+}
+
+<div class="row">
+	<div class="col-sm-6">
+		<h2>Services</h2>
+	</div>
+	<div class="col-sm-6 text-end">
+		<a href="/Service/New" class="btn btn-success">New Services</a>
+	</div>
+</div>
+<hr />
+<div class="row">
+	<div class="col-sm-12">
+		<table class="table table-striped table-bordered">
+			<thead>
+				<tr>
+					<th>NAME</th>
+					<th>TYPE</th>
+					<th style="width:150px"></th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var item in Model)
+				{
+					<tr>
+						<td>@item.Name</td>
+						<td>@item.Type</td>
+						<td style="width:150px">
+							<a href="/Service/Edit/@item.ServiceId" class="btn btn-primary btn-sm">Edit</a>
+							<button onclick="deleteItem(@item.ServiceId)" class="btn btn-danger btn-sm">Delete</button>
+						</td>
+					</tr>
+				}
+			</tbody>
+
+		</table>
+	</div>
+	
+</div>
+
+
+	<script>
+		function deleteItem(serviceId){
+			if(confirm("Are you sure delete service?")){
+				window.location.href='@Url.Action("Delete","Service")'+"?id="+serviceId;
+			}
+		}
+	</script>

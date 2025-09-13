@@ -9,7 +9,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    options.UseMySQL(builder.Configuration.GetConnectionString("mysqlstring"));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("postgres"));
 });
 
 builder.Services.AddScoped<ServiceManager>();

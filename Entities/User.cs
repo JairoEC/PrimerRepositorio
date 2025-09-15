@@ -6,7 +6,11 @@
         public string FullName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public ICollection<Service> Services { get; set; }
-        public ICollection<Transaction> Transactions { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public int RoleId { get; set; }
+        //NAVIGATION PROPERTY
+        public Role? Role { get; set; }
+        //NAVIGATION PROPERTY INVERSO
+        public ICollection<Sale> Sales { get; set; } = new List<Sale>();
     }
 }

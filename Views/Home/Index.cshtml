@@ -1,8 +1,29 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model List<WebApplication_NET_CORE.ViewModels.Book.BookVM>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>LIBRO</th>
+            <th>SUBTITLE</th>
+            <th>PRECIO</th>
+            <th>CATEGORIA</th>
+            <th>AUTOR</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model){
+            <tr>
+                <td>@item.BookId</td>
+                <td>@item.Title</td>
+                <td>@item.SubTitle</td>
+                <td>@item.Price</td>
+                <td>@item.CategoryName</td>
+                <td>@item.AuthorName</td>
+            </tr>
+        }
+    </tbody>
+</table>

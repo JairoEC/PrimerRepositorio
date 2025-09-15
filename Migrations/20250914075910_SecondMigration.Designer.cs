@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using WebApplication_NET_CORE.Context;
@@ -11,9 +12,11 @@ using WebApplication_NET_CORE.Context;
 namespace WebApplication_NET_CORE.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250914075910_SecondMigration")]
+    partial class SecondMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,13 +41,6 @@ namespace WebApplication_NET_CORE.Migrations
                     b.HasKey("AuthorId");
 
                     b.ToTable("Authors");
-
-                    b.HasData(
-                        new
-                        {
-                            AuthorId = 1,
-                            AuthorName = "Author de a mentis"
-                        });
                 });
 
             modelBuilder.Entity("WebApplication_NET_CORE.Entities.Book", b =>

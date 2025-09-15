@@ -12,7 +12,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("postgres"));
 });
 
-builder.Services.AddScoped<ServiceManager>();
+builder.Services.AddScoped<AuthorManager>();
+builder.Services.AddScoped<CategoryManager>();
+builder.Services.AddScoped<BookManager>();
 
 var app = builder.Build();
 
